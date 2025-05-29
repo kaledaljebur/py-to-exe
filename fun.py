@@ -47,7 +47,7 @@ def greet():
 
     msg = random.choice(statements)
     fontStyle=random.choice(fontStyleList)
-    asciiMsg = figlet_format(name, font=fontStyle)
+    asciiMsg = figlet_format(name, font=fontStyle, justify="center")
     # messagebox.showinfo("Greeting", f"{msg}\n\n{asciiMsg}")
     top = Toplevel(root)
     top.title("Greeting (Sample for Education)")
