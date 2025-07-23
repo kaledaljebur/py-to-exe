@@ -35,19 +35,23 @@ def greet():
         f"{name}, the cloud asks *you* for permission to scale.",
         f"{name}, even ChatGPT asks you for help debugging.",
     ]
-    # fontStyleList = [
-    #     "train",
-    #     "doh",
-    #     "sub-zero", 
-    #     "larry3d", 
-    #     "xtty",
-    # ]
+    fontStyleList2 = [
+        "train",
+        "doh",
+        "sub-zero", 
+        "larry3d", 
+        "xtty",
+        "electronic",
+        "big",
+        "epic",
+        "dos_rebel",
+    ]
     # fontStyleList = sorted(Figlet().getFonts())
     fontStyleList = [f for f in Figlet().getFonts() if len(f) <= 10]
-
     msg = random.choice(statements)
     fontStyle=random.choice(fontStyleList)
-    asciiMsg = figlet_format(name, font=fontStyle, justify="center")
+    # fontStyle = random.choice(fontStyleList2)
+    asciiMsg = figlet_format(name, font=fontStyle, justify="left")
     # messagebox.showinfo("Greeting", f"{msg}\n\n{asciiMsg}")
     top = Toplevel(root)
     top.title("Greeting (Sample for Education)")
@@ -62,14 +66,18 @@ def greet():
 
 
     text.insert("end", f"{msg}\n\n{asciiMsg}")
-    text.insert("end", f"\n\nPress Enter for more!")
+    # print(fontStyle)
+    text.insert("end", f"\n\nThe font style is {fontStyle}.")    
+    text.insert("end", f"\nPress Enter for more!")
     text.insert("end", f"\nClose the main window to exit.")
+    text.insert("end", "\n\nYou can check some samples of styles here: http://www.figlet.org/examples.html")
+    text.insert("end", "\nOr the full list here: https://github.com/xero/figlet-fonts/tree/master")
     text.config(state="disabled") 
 
 root = tk.Tk()
 root.title("Fun App (Sample for Education)")
 # root.geometry("300x120")
-centerWindow(root, 400, 150)
+centerWindow(root, 400, 185)
 
 label = tk.Label(root, text="What's your name?")
 label.pack(pady=10)
@@ -82,6 +90,9 @@ entry.focus()
 button = tk.Button(root, text="Greet Me!", command=greet)
 button.pack(pady=10)
 # entry.delete(0, 'end')
+
+label2 = tk.Label(root, text="Created by: Kaled Aljebur\nhttps://github.com/kaledaljebur/py-to-exe")
+label2.pack(pady=10)
 
 root.bind('<Return>', lambda event: button.invoke())
 
