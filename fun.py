@@ -3,7 +3,7 @@ from tkinter import  messagebox, Toplevel, Text, Scrollbar
 from pyfiglet import figlet_format, Figlet
 import random
 
-def centerWindow(win, width=300, height=150):
+def centerWindow(win, width=800, height=150):
     win.update_idletasks()
     screenWidth = win.winfo_screenwidth()
     screenHeight = win.winfo_screenheight()
@@ -50,12 +50,12 @@ def greet():
     fontStyleList = [f for f in Figlet().getFonts() if len(f) <= 10]
     msg = random.choice(statements)
     fontStyle=random.choice(fontStyleList)
-    # fontStyle = random.choice(fontStyleList2)
+    fontStyle = random.choice(fontStyleList2)
     asciiMsg = figlet_format(name, font=fontStyle, justify="left")
     # messagebox.showinfo("Greeting", f"{msg}\n\n{asciiMsg}")
     top = Toplevel(root)
     top.title("Greeting (Sample for Education)")
-    # top.geometry("600x400")
+    top.geometry("900x400")
 
     scrollbar = Scrollbar(top)
     scrollbar.pack(side="right", fill="y")
